@@ -2,12 +2,7 @@
 
 Follow the tournament!
 
-
-## Teams
-
-
-## Find the brackets : 
+Find the teams on `Run_.html`, and the bracket and next games on `Tournament_.html`
 
 
-## Next games :
 
