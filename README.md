@@ -2,6 +2,10 @@
 
 Follow the tournament!
 
+
+## Teams
+
+
 ## Find the brackets : 
 
 

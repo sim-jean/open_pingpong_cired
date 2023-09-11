@@ -1,0 +1,104 @@
+---
+title: "Open Ping Pong 2023"
+author: "S. Jean"
+date: "2023-09-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(here)
+library(magrittr)
+library(dplyr)
+library(tidyr)
+library(purrr)
+library(kableExtra)
+
+
+```
+
+## Load participants data
+
+First step is cleaning the data : 
+
+1. Get only relevant info from framaform
+
+2. Clean participants levels
+
+```{r, load data}
+participants = read.csv(here('open_ping_pong_2023.csv'),
+                        skip = 2)%>%
+  select(c(10,11))
+
+colnames(participants) = c('Name', 'Level')
+
+replacer_ = function(x){
+  if(x == 'Merguez'){
+    return(1)
+  }else if(x == 'Un peu merguez'){
+    return(2)
+  }else if(x == 'Somme toute ça va'){
+    return(3)
+  }else if(x == 'Ouais jme défends ouais'){
+    return(4)
+  }else if(x == "J'ai déja battu PY ou Philippe"){
+    return(5)
+  }
+}
+
+participants$Level = sapply(participants$Level, replacer_)
+
+```
+
+
+## Make teams
+
+```{r, teams1}
+cumulative_level = c(5,6)
+
+participants2 = participants
+colnames(participants2) = c('Name2', 'Level2')
+
+teams = expand_grid(participants, participants2)%>%
+  mutate(cumul_score = Level + Level2)%>%
+  subset(cumul_score %in% cumulative_level)
+
+if(length(unique(teams$Name)) != length(unique(participants$Name))){
+  print("Issue : not everyone is matched, may need to change the cumulative level")
+}else{
+  print('Proceed to team matching')
+}
+```
+
+```{r, teams2}
+teams_final = tibble('Name1', 'Name2')
+rm(i)
+
+if(nrow(participants)%%2 != 0){
+  print('Uneven participants number! Find an other player!')
+}else{
+  for(i in seq(1:round(nrow(participants)/2))){
+  
+    name = unique(teams$Name)[1]
+  # For each name 1, set candidates
+    candidates = teams %>% 
+      subset(Name == name)
+  
+  # Pick randomly team and save it
+    match_ = rdunif(1, a = 1, b = nrow(candidates))
+    mate = unlist(candidates[match_, which(colnames(candidates)=='Name2')])
+    team = c(name, 
+             mate)
+  
+    teams_final  = rbind(teams_final, team)
+  
+  # Finally, clear teams from picked candidates
+  
+    teams = teams %>% subset(!(Name %in% team) & !(Name2 %in% team))
+  }
+}
+
+write.csv(teams_final, here('teams2023.csv'))
+
+kable(teams_final)
+```
