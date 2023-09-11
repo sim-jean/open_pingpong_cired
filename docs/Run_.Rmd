@@ -2,7 +2,7 @@
 title: "Open Ping Pong 2023"
 author: "S. Jean"
 date: "2023-09-11"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
