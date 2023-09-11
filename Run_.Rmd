@@ -53,6 +53,8 @@ participants$Level = sapply(participants$Level, replacer_)
 
 ## Make teams
 
+Teams for the 2023 edition are : 
+
 ```{r, teams1}
 cumulative_level = c(5,6)
 
