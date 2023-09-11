@@ -2,7 +2,5 @@
 
 Follow the tournament!
 
-Find the teams on `Run_.html`, and the bracket and next games on `Tournament_.html`
-
-Why is this not working? 
+Find the teams on `docs/Run_.md`, and the bracket and next games on `docs/Tournament_.md`
 
