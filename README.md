@@ -4,5 +4,5 @@
 
 Follow the tournament!
 
-Find the teams on `Run_.md`, and the bracket and next games on `Tournament_.md`
+Find the teams on `Run_.md`, and the bracket and next games on `Brackets.md`
 

@@ -17,28 +17,109 @@ Teams for the 2023 edition are :
 
     ## [1] "Proceed to team matching"
 
-    ## Warning in rm(i): object 'i' not found
-
-    ## [1] "Uneven participants number! Find an other player!"
+    ## Warning: `rdunif()` was deprecated in purrr 1.0.0.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
 
 <table>
 <thead>
 <tr>
 <th style="text-align:left;">
-"Name1"
+Player 1
 </th>
 <th style="text-align:left;">
-"Name2"
+Player 2
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Name1
+Mehdi
 </td>
 <td style="text-align:left;">
-Name2
+Charlotte L
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Philippe
+</td>
+<td style="text-align:left;">
+JUN XIE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Thibault B
+</td>
+<td style="text-align:left;">
+Célia
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Angélique
+</td>
+<td style="text-align:left;">
+Bruno F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Baptiste P
+</td>
+<td style="text-align:left;">
+Rémy D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adriana
+</td>
+<td style="text-align:left;">
+Simon
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Colin
+</td>
+<td style="text-align:left;">
+Mai Thi
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Thomas LG
+</td>
+<td style="text-align:left;">
+Laure B.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Valentin
+</td>
+<td style="text-align:left;">
+Samuel
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aurélie
+</td>
+<td style="text-align:left;">
+Gabriele
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jean W
+</td>
+<td style="text-align:left;">
+Mariana
 </td>
 </tr>
 </tbody>

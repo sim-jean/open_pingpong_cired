@@ -56,7 +56,7 @@ participants$Level = sapply(participants$Level, replacer_)
 Teams for the 2023 edition are : 
 
 ```{r, teams1}
-cumulative_level = c(5,6)
+cumulative_level = c(5,6,7)
 
 participants2 = participants
 colnames(participants2) = c('Name2', 'Level2')
@@ -79,15 +79,25 @@ if(nrow(participants)%%2 != 0){
   print('Uneven participants number! Find an other player!')
 }else{
   for(i in seq(1:round(nrow(participants)/2))){
-  
-    name = unique(teams$Name)[1]
+    
+  # Use the candidates with the least amount of combinations first  
+    combinations_count = data.frame(table(teams$Name))
+    spot = min(combinations_count$Freq)
+    
+    name = as.character(combinations_count[which(combinations_count$Freq == spot)[1], 1])
   # For each name 1, set candidates
     candidates = teams %>% 
       subset(Name == name)
   
   # Pick randomly team and save it
+  # -> While loop to avoid matching with oneself 
+    mate = name
+    
+    if(mate == name){
     match_ = rdunif(1, a = 1, b = nrow(candidates))
     mate = unlist(candidates[match_, which(colnames(candidates)=='Name2')])
+    }
+    
     team = c(name, 
              mate)
   
@@ -96,10 +106,12 @@ if(nrow(participants)%%2 != 0){
   # Finally, clear teams from picked candidates
   
     teams = teams %>% subset(!(Name %in% team) & !(Name2 %in% team))
+    #print(i)
   }
 }
 
+teams_final = teams_final[-1, ]
 write.csv(teams_final, here('teams2023.csv'))
-
+colnames(teams_final) = c('Player 1', 'Player 2')
 kable(teams_final)
 ```
