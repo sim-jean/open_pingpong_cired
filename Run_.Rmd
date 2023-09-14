@@ -74,7 +74,6 @@ if(length(unique(teams$Name)) != length(unique(participants$Name))){
 
 ```{r, teams2}
 teams_final = tibble('Name1', 'Name2')
-rm(i)
 
 if(nrow(participants)%%2 != 0){
   print('Uneven participants number! Find an other player!')
